@@ -1,5 +1,6 @@
 import { Tabs } from "antd";
 import "../styles/tabs/tabs.css";
+
 const { TabPane } = Tabs;
 
 const TabsDemo = () => {
