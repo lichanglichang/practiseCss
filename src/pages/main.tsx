@@ -7,6 +7,8 @@ const MainDemo = () => {
         <Link to="/tabs">Tabs练习</Link>
         <br />
         <Link to="/box">盒子模型练习</Link>
+        <br />
+        <Link to="/bg">背景</Link>
       </div>
     </>
   );
