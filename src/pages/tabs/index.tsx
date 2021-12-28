@@ -1,5 +1,4 @@
 import { Tabs } from "antd";
-// import "./tabs.css";
 import tabsStyle from "./tabs.module.less";
 const { TabPane } = Tabs;
 
@@ -8,7 +7,12 @@ const TabsDemo = () => {
 
   return (
     <>
-      <Tabs defaultActiveKey="1" centered id={tabsStyle.root}>
+      <Tabs
+        defaultActiveKey="1"
+        centered
+        id={tabsStyle.root}
+        className={tabsStyle.baseTabs}
+      >
         <TabPane tab="仪表盘" key="1">
           Content of Tab Pane 1
         </TabPane>
