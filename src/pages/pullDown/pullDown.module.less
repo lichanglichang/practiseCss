@@ -1,0 +1,50 @@
+div,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+.navList {
+  width: 100%;
+  display: flex;
+  & > div {
+    width: 200px;
+    border: 1px solid #ccc;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    position: relative;
+    .pullList {
+      height: 100px;
+      padding-top: 1px;
+    }
+    &:hover ul {
+      background-color: lightpink;
+      margin-top: 20px;
+      height: 80px;
+      transition: all 0.2s;
+      li {
+        list-style: none;
+      }
+      li:hover {
+        background-color: wheat;
+      }
+    }
+    &:hover .triangle {
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 42px;
+      left: 90px;
+      border-bottom: 10px solid #ccc;
+      border-top: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-left: 10px solid transparent;
+    }
+    ul {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+}
