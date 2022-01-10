@@ -15,6 +15,8 @@ const MainDemo = () => {
         <Link to="/rem">rem响应式布局</Link>
         <br />
         <Link to="/pull">下拉框</Link>
+        <br />
+        <Link to="/grid">栅格布局</Link>
       </div>
     </>
   );

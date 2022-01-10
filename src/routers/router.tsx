@@ -6,6 +6,7 @@ import BackGroundDome from "../pages/background/index";
 import FlexDemo from "../pages/flex/index";
 import RemLayout from "../pages/remLayout/index";
 import PullDown from "../pages/pullDown/index";
+import GridDome from "../pages/grid";
 const AllRoute = () => {
   return (
     <Router>
@@ -17,6 +18,7 @@ const AllRoute = () => {
         <Route path="/flex" element={<FlexDemo />}></Route>
         <Route path="/rem" element={<RemLayout />}></Route>
         <Route path="/pull" element={<PullDown />}></Route>
+        <Route path="/grid" element={<GridDome />}></Route>
       </Routes>
     </Router>
   );
