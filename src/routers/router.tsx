@@ -6,7 +6,7 @@ import BackGroundDome from "../pages/background/index";
 import FlexDemo from "../pages/flex/index";
 import RemLayout from "../pages/remLayout/index";
 import PullDown from "../pages/pullDown/index";
-import GridDome from "../pages/grid";
+import GridDome from "../pages/grid/index";
 const AllRoute = () => {
   return (
     <Router>

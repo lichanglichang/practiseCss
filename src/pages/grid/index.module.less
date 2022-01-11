@@ -4,7 +4,9 @@
   display: grid;
   max-width: 1200px;
   //   控制列的宽度及数量
-  grid-template-columns: 100px 100px auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  // grid-template-columns: repeat(3, 2em 1fr 1fr); // 重复多条轨道
+
   //   控制行的高度及数量
   //   单位fr代表份数
   grid-template-rows: 1fr 1fr 2fr;
@@ -41,10 +43,10 @@
   }
   .item5 {
     background-color: lightslategrey;
-    // grid-column: 1 / 3;
   }
   .item6 {
     background-color: goldenrod;
+    grid-column: 1 / 4;
     // grid-area: 3 / 1 / 4 / 4;
   }
 }
