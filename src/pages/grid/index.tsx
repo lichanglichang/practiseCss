@@ -16,15 +16,15 @@ const GridDome = () => {
       栅格布局
       <Form
         name="basic"
-        labelCol={{ span: 4 }}
-        wrapperCol={{ span: 8 }}
+        // labelCol={{ span: 4 }}
+        // wrapperCol={{ span: 12 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Row>
-          <Col xs={0} sm={0} md={0} lg={6}>
+          <Col xs={24} sm={24} md={8} lg={6}>
             <Form.Item
               label="Username"
               name="username"
@@ -35,7 +35,7 @@ const GridDome = () => {
               <Input />
             </Form.Item>
           </Col>
-          <Col xs={0} sm={0} md={8} lg={6}>
+          <Col xs={24} sm={24} md={8} lg={6}>
             <Form.Item
               label="Password"
               name="password"
@@ -46,7 +46,51 @@ const GridDome = () => {
               <Input.Password />
             </Form.Item>
           </Col>
-          <Col xs={0} sm={0} md={8} lg={6}>
+          <Col xs={24} sm={24} md={8} lg={6}>
+            <Form.Item
+              label="Username"
+              name="username"
+              rules={[
+                { required: true, message: "Please input your username!" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col xs={24} sm={24} md={8} lg={6}>
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                { required: true, message: "Please input your password!" },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+          </Col>
+          <Col xs={24} sm={24} md={8} lg={6}>
+            <Form.Item
+              label="Username"
+              name="username"
+              rules={[
+                { required: true, message: "Please input your username!" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+          </Col>
+          <Col xs={24} sm={24} md={8} lg={6}>
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                { required: true, message: "Please input your password!" },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+          </Col>
+          <Col xs={24} sm={24} md={8} lg={6}>
             <Form.Item
               label="Username"
               name="username"
