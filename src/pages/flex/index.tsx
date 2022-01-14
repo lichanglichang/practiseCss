@@ -35,8 +35,12 @@ const FlexDemo: React.FC = () => {
         </div>
       </div>
 
-      <div>
-        <h2>项目--六大属性</h2>
+      <div className={flexStyle.marginBox}>
+        <h2>margin-top</h2>
+        <div className={flexStyle.father}>
+          <div className={flexStyle.son}></div>
+          <div className={flexStyle.son1}></div>
+        </div>
       </div>
     </div>
   );
