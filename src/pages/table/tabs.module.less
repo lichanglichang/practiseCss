@@ -1,0 +1,51 @@
+.table {
+  background-color: rgba(6, 19, 38);
+  color: #fff;
+  width: 400px;
+  text-align: left;
+  margin-left: 10px;
+  caption {
+    height: 40px;
+    caption-side: top;
+  }
+  tbody {
+    tr {
+      &:nth-child(odd) {
+        background-color: rgba(23, 44, 77, 0.2);
+      }
+      &:hover {
+        opacity: 0.6;
+        background: linear-gradient(90deg, #599bff 2%, rgba(23, 44, 77, 0.15));
+      }
+    }
+  }
+  tr {
+    height: 40px;
+    td,
+    th {
+      padding-left: 20px;
+    }
+  }
+}
+
+.table2 {
+  table {
+    border-spacing: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border-collapse: collapse;
+    // border-collapse: separate;
+    border: 1px solid black;
+    margin-left: 20px;
+    width: 400px;
+    caption {
+      text-align: center;
+      caption-side: top;
+    }
+    th,
+    td {
+      width: 25%;
+      border: 1px solid black;
+    }
+  }
+}

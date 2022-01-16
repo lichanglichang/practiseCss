@@ -19,6 +19,10 @@ const MainDemo = () => {
         <Link to="/pull">下拉框</Link>
         <br />
         <Link to="/grid">栅格布局</Link>
+        <br />
+        <Link to="/table">修改表格样式</Link>
+        <br />
+        <Link to="/font">引入外部字体</Link>
       </div>
     </>
   );

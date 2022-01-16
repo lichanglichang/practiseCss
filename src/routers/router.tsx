@@ -8,6 +8,8 @@ import RemLayout from "../pages/remLayout/index";
 import PullDown from "../pages/pullDown/index";
 import GridDome from "../pages/grid/index";
 import VwLayout from "../pages/vwLayout/index";
+import Table from "../pages/table";
+import FontStyle from "../pages/fontStyle";
 const AllRoute = () => {
   return (
     <Router>
@@ -21,6 +23,8 @@ const AllRoute = () => {
         <Route path="/vw" element={<VwLayout />}></Route>
         <Route path="/pull" element={<PullDown />}></Route>
         <Route path="/grid" element={<GridDome />}></Route>
+        <Route path="/table" element={<Table />}></Route>
+        <Route path="/font" element={<FontStyle />}></Route>
       </Routes>
     </Router>
   );

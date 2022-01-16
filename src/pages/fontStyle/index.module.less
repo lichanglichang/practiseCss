@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "myfont";
+  src: url("./RawMarukoGothicCJKtc-Regular.ttf") format("truetype");
+}
+.wordContent {
+  font-family: "myfont";
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.circular {
+  width: 100px;
+  height: 100px;
+  animation: rotate 2s linear infinite;
+}
+
+.path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke: #000;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* stroke-dasharray：值是一组数组，没数量上限，每个数字交替表示划线与间隔的宽度;
+stroke-dashoffset：dash 模式到路径开始的距离。 */
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
