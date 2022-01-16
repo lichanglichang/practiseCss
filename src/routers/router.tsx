@@ -6,6 +6,8 @@ import BackGroundDome from "../pages/background/index";
 import FlexDemo from "../pages/flex/index";
 import RemLayout from "../pages/remLayout/index";
 import PullDown from "../pages/pullDown/index";
+import GridDome from "../pages/grid/index";
+import VwLayout from "../pages/vwLayout/index";
 const AllRoute = () => {
   return (
     <Router>
@@ -16,7 +18,9 @@ const AllRoute = () => {
         <Route path="/bg" element={<BackGroundDome />}></Route>
         <Route path="/flex" element={<FlexDemo />}></Route>
         <Route path="/rem" element={<RemLayout />}></Route>
+        <Route path="/vw" element={<VwLayout />}></Route>
         <Route path="/pull" element={<PullDown />}></Route>
+        <Route path="/grid" element={<GridDome />}></Route>
       </Routes>
     </Router>
   );

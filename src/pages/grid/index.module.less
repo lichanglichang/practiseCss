@@ -1,0 +1,52 @@
+.container {
+  background-color: lightpink;
+  //   设为栅格容器
+  display: grid;
+  max-width: 1200px;
+  //   控制列的宽度及数量
+  grid-template-columns: 1fr 1fr 1fr;
+  // grid-template-columns: repeat(3, 2em 1fr 1fr); // 重复多条轨道
+
+  //   控制行的高度及数量
+  //   单位fr代表份数
+  grid-template-rows: 1fr 1fr 2fr;
+  //   设置列间距
+  grid-column-gap: 40px;
+  //    设置行间距
+  grid-row-gap: 20px;
+  //     grid-gap: 10px 20px;缩写形式
+
+  //   justify-items: center;
+  //   align-items: center;
+
+  grid-template-areas:
+    "header header header"
+    ". content content"
+    "footer footer footer";
+
+  .item1 {
+    background-color: blanchedalmond;
+    // grid-row: 2 / 4;
+  }
+  .item2 {
+    background-color: lightsalmon;
+    // 更改元素宽度和排列的位置
+    // justify-self: left;
+  }
+  .item3 {
+    background-color: lightskyblue;
+    // 更改元素高度和排列的位置
+    // align-self: end;
+  }
+  .item4 {
+    background-color: limegreen;
+  }
+  .item5 {
+    background-color: lightslategrey;
+  }
+  .item6 {
+    background-color: goldenrod;
+    grid-column: 1 / 4;
+    // grid-area: 3 / 1 / 4 / 4;
+  }
+}

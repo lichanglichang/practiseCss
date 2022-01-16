@@ -38,6 +38,37 @@ const TabsDemo = () => {
           Content of Tab Pane 3
         </TabPane>
       </Tabs>
+      <br />
+      <hr />
+      <table className={tabsStyle.table}>
+        <tr className={tabsStyle.firstTab}>
+          <th>柜次</th>
+          <th>品类</th>
+          <th>收货方</th>
+        </tr>
+        <tbody>
+          <tr>
+            <td>张三</td>
+            <td>18</td>
+            <td>挖掘机</td>
+          </tr>
+          <tr>
+            <td>马六</td>
+            <td>20</td>
+            <td>大前端</td>
+          </tr>
+          <tr>
+            <td>张三</td>
+            <td>18</td>
+            <td>挖掘机</td>
+          </tr>
+          <tr>
+            <td>马六</td>
+            <td>20</td>
+            <td>大前端</td>
+          </tr>
+        </tbody>
+      </table>
     </>
   );
 };
