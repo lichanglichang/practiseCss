@@ -10,6 +10,7 @@ import GridDome from "../pages/grid/index";
 import VwLayout from "../pages/vwLayout/index";
 import Table from "../pages/table";
 import FontStyle from "../pages/fontStyle";
+import PracticeLayout from "../pages/practiceLayout/index";
 const AllRoute = () => {
   return (
     <Router>
@@ -25,6 +26,7 @@ const AllRoute = () => {
         <Route path="/grid" element={<GridDome />}></Route>
         <Route path="/table" element={<Table />}></Route>
         <Route path="/font" element={<FontStyle />}></Route>
+        <Route path="/practice" element={<PracticeLayout />}></Route>
       </Routes>
     </Router>
   );

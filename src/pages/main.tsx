@@ -23,6 +23,8 @@ const MainDemo = () => {
         <Link to="/table">修改表格样式</Link>
         <br />
         <Link to="/font">引入外部字体</Link>
+        <br />
+        <Link to="/practice">css练习布局</Link>
       </div>
     </>
   );
