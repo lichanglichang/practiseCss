@@ -1,12 +1,23 @@
 .wrapText {
   width: 100%;
-  margin-top: 2vh;
+  margin-top: 5vw;
   position: relative;
+  & > div > p {
+    margin: 0;
+    // text-indent: 2em;
+  }
+  & > div > span {
+    color: blue;
+  }
   .content {
-    height: 21vh;
+    height: 40vw;
     overflow: hidden;
   }
+  .controlAfter {
+    display: none;
+  }
   .control {
+    display: block;
     position: absolute;
     bottom: 0;
     left: 0;
