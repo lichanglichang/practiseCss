@@ -15,11 +15,11 @@ const Comment: React.FC = () => {
                 <div className={styles.top}>POPO 标题</div>
                 <div className={styles.middle}>
                     <div className={styles.imgBox}></div>
-                    <div><p>综合评分</p>
+                    <div className={styles.detail}><p>综合评分</p>
                         <p>4.9</p></div>
                     <div className={styles.imgBox}></div>
                 </div>
-                <div><span>商品质量</span><span>1，000点</span></div>
+                <div className={styles.bottom}><span>商品质量</span><span>1,000点</span></div>
             </div>
         </div>
     )

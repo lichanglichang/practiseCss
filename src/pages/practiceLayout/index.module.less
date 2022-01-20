@@ -1,20 +1,30 @@
 .app {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
   padding: 4vw;
+  background-color: #f8f8f8;
   .top {
-    border-bottom: 1px solid #eee;
+    background-color: white;
   }
-}
-.circular {
-  width: 100px;
-  height: 100px;
-  // animation: rotate 2s linear infinite;
-}
-
-.path {
-  // stroke-dasharray: 1, 200;
-  // stroke-dashoffset: 0;
-  stroke-dasharray: 89, 200;
-  stroke-dashoffset: -35px;
-  stroke: #000;
-  // animation: dash 1.5s ease-in-out infinite;
+  .control {
+    display: flex;
+    justify-content: space-between;
+    .sameStyle {
+      width: 45vw;
+      height: 6vh;
+      border-radius: 4px;
+      text-align: center;
+      line-height: 6vh;
+      font-size: 18px;
+    }
+    .msg {
+      .sameStyle();
+      border: 2px solid #006cd5;
+    }
+    .goods {
+      .sameStyle();
+      border: 2px solid #70efe8;
+    }
+  }
 }
