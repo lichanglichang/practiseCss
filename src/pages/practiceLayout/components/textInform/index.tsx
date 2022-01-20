@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import cs from "classnames";
+// import cs from "classnaoo             llmes";
 import styles from "./index.module.less";
 const TextInform: React.FC = () => {
   const [textStatus, setTextStatus] = useState(false);
