@@ -13,7 +13,7 @@ const PracticeLayout = () => {
         <TextInform />
       </div>
       <Comment />
-      <RingData />
+      <RingData value={0.5} />
       <div className={styles.control}>
         <div className={styles.msg}>
           <RestOutlined />
