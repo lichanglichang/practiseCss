@@ -11,15 +11,17 @@ const PracticeLayout = () => {
         <TextInform />
       </div>
       <Comment />
-      <svg className={styles.circular} viewBox="25 25 50 50">
-        <circle className={styles.path} cx="50" cy="50" r="20" fill="none" />
-      </svg>
-      <svg className={styles.circular} viewBox="25 25 50 50">
-        <circle className={styles.path} cx="50" cy="50" r="20" fill="none" />
-      </svg>
-      <svg className={styles.circular} viewBox="25 25 50 50">
-        <circle className={styles.path} cx="50" cy="50" r="20" fill="none" />
-      </svg>
+      <div>
+        <svg className={styles.circularOne} viewBox="25 25 50 50">
+          <circle className={styles.path} cx="50" cy="50" r="20" fill="white" />
+        </svg>
+        <svg className={styles.circularTow} viewBox="25 25 50 50">
+          <circle className={styles.path} cx="50" cy="50" r="20" fill="white" />
+        </svg>
+        <svg className={styles.circularThree} viewBox="25 25 50 50">
+          <circle className={styles.path} cx="50" cy="50" r="20" fill="white" />
+        </svg>
+      </div>
     </div>
   );
 };

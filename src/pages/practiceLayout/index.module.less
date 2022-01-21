@@ -1,20 +1,34 @@
 .app {
+  background-color: #f8f8f8;
   padding: 4vw;
   .top {
     border-bottom: 1px solid #eee;
   }
 }
-.circular {
+.circularOne,
+.circularTow,
+.circularThree {
   width: 100px;
   height: 100px;
+  transform: rotate(-83deg);
+  border-radius: 50px;
   // animation: rotate 2s linear infinite;
 }
-
 .path {
-  // stroke-dasharray: 1, 200;
-  // stroke-dashoffset: 0;
-  stroke-dasharray: 89, 200;
-  stroke-dashoffset: -35px;
-  stroke: #000;
-  // animation: dash 1.5s ease-in-out infinite;
+  stroke-width: 2px;
+}
+.circularOne .path {
+  stroke: #ff3045;
+  stroke-dasharray: 137, 200;
+  stroke-dashoffset: 18px;
+}
+.circularTow .path {
+  stroke: #70efe8;
+  stroke-dasharray: 116, 168;
+  stroke-dashoffset: 18px;
+}
+.circularThree .path {
+  stroke: #005dcd;
+  stroke-dasharray: 104, 200;
+  stroke-dashoffset: 18px;
 }
