@@ -1,8 +1,10 @@
 import styles from "./index.module.less";
+import { RestOutlined, RobotOutlined } from "@ant-design/icons";
 //components
 import ScoreDemo from "./components/score";
 import TextInform from "./components/textInform";
 import Comment from "./components/comment";
+import RingData from "./components/ringData";
 const PracticeLayout = () => {
   return (
     <div className={styles.app}>
@@ -11,16 +13,16 @@ const PracticeLayout = () => {
         <TextInform />
       </div>
       <Comment />
-      <div>
-        <svg className={styles.circularOne} viewBox="25 25 50 50">
-          <circle className={styles.path} cx="50" cy="50" r="20" fill="white" />
-        </svg>
-        <svg className={styles.circularTow} viewBox="25 25 50 50">
-          <circle className={styles.path} cx="50" cy="50" r="20" fill="white" />
-        </svg>
-        <svg className={styles.circularThree} viewBox="25 25 50 50">
-          <circle className={styles.path} cx="50" cy="50" r="20" fill="white" />
-        </svg>
+      <RingData />
+      <div className={styles.control}>
+        <div className={styles.msg}>
+          <RestOutlined />
+          店铺信息
+        </div>
+        <div className={styles.goods}>
+          <RobotOutlined />
+          详情商品
+        </div>
       </div>
     </div>
   );
