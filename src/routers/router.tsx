@@ -11,6 +11,7 @@ import VwLayout from "../pages/vwLayout/index";
 import Table from "../pages/table";
 import FontStyle from "../pages/fontStyle";
 import PracticeLayout from "../pages/practiceLayout/index";
+import HeadLayout from "../pages/head";
 const AllRoute = () => {
   return (
     <Router>
@@ -27,6 +28,7 @@ const AllRoute = () => {
         <Route path="/table" element={<Table />}></Route>
         <Route path="/font" element={<FontStyle />}></Route>
         <Route path="/practice" element={<PracticeLayout />}></Route>
+        <Route path="/head" element={<HeadLayout />}></Route>
       </Routes>
     </Router>
   );
