@@ -1,12 +1,47 @@
-import { Content } from "antd/lib/layout/layout";
-import React from "react";
+import React, {useState} from "react";
 import styles from "./index.module.less";
 const HeadLayout: React.FC = () => {
+  const [state, setState] = useState<boolean>(false);
+
+  window.onscroll = function () {
+    let scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    scrollTop > 35 ? setState(true) : setState(false);
+  };
+
   return (
     <div className={styles.app}>
       <header className={styles.wrapHead}>
         <div className={styles.topHead}></div>
-        <div className={styles.bottomHead}></div>
+        <div className={state ? styles.bottomHeadOther : styles.bottomHead}>
+          <div className={styles.navLeft}></div>
+          <div className={styles.navCenter}>
+            <ul>
+              <li>
+                <span>首页</span>
+              </li>
+              <li>
+                <span>效果图</span>
+              </li>
+              <li>
+                <span>装修公司</span>
+              </li>
+              <li>
+                <span>装修攻略</span>
+              </li>
+              <li>
+                <span>保障服务</span>
+              </li>
+              <li>
+                <span>更多</span>
+              </li>
+              <li>
+                <span>下载APP</span>
+              </li>
+            </ul>
+          </div>
+          <div className={styles.navRight}></div>
+        </div>
       </header>
       <div className={styles.content}>
         <p>1</p>
