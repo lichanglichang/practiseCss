@@ -1,5 +1,6 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styles from "./index.module.less";
+import classnames from "classnames";
 const HeadLayout: React.FC = () => {
   const [state, setState] = useState<boolean>(false);
 
@@ -18,7 +19,18 @@ const HeadLayout: React.FC = () => {
           <div className={styles.navCenter}>
             <ul>
               <li>
-                <span>首页</span>
+                <a href="" className={styles.item}>
+                  首页
+                </a>
+                <a
+                  href=""
+                  className={classnames({
+                    [`${styles.bgItem}`]: !state,
+                    [`${styles.bgItemOther}`]: state,
+                  })}
+                >
+                  <span>首页</span>
+                </a>
               </li>
               <li>
                 <span>效果图</span>
