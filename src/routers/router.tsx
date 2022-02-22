@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import MainDemo from "../pages/main";
 import TabsDemo from "../pages/tabs/index";
 import BoxDemo from "../pages/boxMode/index";
@@ -12,6 +12,7 @@ import Table from "../pages/table";
 import FontStyle from "../pages/fontStyle";
 import PracticeLayout from "../pages/practiceLayout/index";
 import HeadLayout from "../pages/head";
+import Lianxi from "../pages/lianxi";
 const AllRoute = () => {
   return (
     <Router>
@@ -29,6 +30,7 @@ const AllRoute = () => {
         <Route path="/font" element={<FontStyle />}></Route>
         <Route path="/practice" element={<PracticeLayout />}></Route>
         <Route path="/head" element={<HeadLayout />}></Route>
+        <Route path="/lianxi" element={<Lianxi />}></Route>
       </Routes>
     </Router>
   );

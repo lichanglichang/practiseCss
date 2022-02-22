@@ -1,10 +1,10 @@
-import { Space } from "antd";
-import { Link } from "react-router-dom";
+import {Space} from "antd";
+import {Link} from "react-router-dom";
 
 const MainDemo = () => {
   return (
     <>
-      <div style={{ padding: "20px" }}>
+      <div style={{padding: "20px"}}>
         <Space direction="vertical">
           <Link to="/tabs">Tabs练习</Link>
           <Link to="/box">盒子模型练习</Link>
@@ -18,6 +18,7 @@ const MainDemo = () => {
           <Link to="/font">引入外部字体</Link>
           <Link to="/practice">css练习布局</Link>
           <Link to="/head">head练习</Link>
+          <Link to="/lianxi">练习antd</Link>
         </Space>
       </div>
     </>
