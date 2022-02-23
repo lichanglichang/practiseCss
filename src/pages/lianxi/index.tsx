@@ -1,21 +1,21 @@
-import { Button, Form, Input, Tag, Tree } from "antd";
-import React, { useState } from "react";
-import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import {Button, Form, Input, Tag, Tree} from "antd";
+import React, {useState} from "react";
+import {MinusCircleOutlined, PlusOutlined} from "@ant-design/icons";
 const Lianxi: React.FC = () => {
   const formItemLayout = {
     labelCol: {
-      xs: { span: 24 },
-      sm: { span: 4 },
+      xs: {span: 24},
+      sm: {span: 4},
     },
     wrapperCol: {
-      xs: { span: 24 },
-      sm: { span: 20 },
+      xs: {span: 24},
+      sm: {span: 20},
     },
   };
   const formItemLayoutWithOutLabel = {
     wrapperCol: {
-      xs: { span: 24, offset: 0 },
-      sm: { span: 20, offset: 4 },
+      xs: {span: 24, offset: 0},
+      sm: {span: 20, offset: 4},
     },
   };
   const onFinish = (values: any) => {
@@ -23,15 +23,23 @@ const Lianxi: React.FC = () => {
   };
 
   const onSelect = (selectedKeys: React.Key[], info: any) => {
-    console.log("selected", selectedKeys, info);
+    console.log("selected", selectedKeys, info.selectedNodes);
+    setTagData(info.selectedNodes);
   };
-
-  const [tagData, setTagData] = useState([]);
+  interface tagDataType {
+    title: string;
+    key: string;
+    children: tagDataType;
+  }
+  const [tagData, setTagData] = useState<tagDataType[]>();
   const onCheck = (checkedKeys: any, e: any) => {
-    console.log("onCheck", checkedKeys, e.checkedNodesPositions);
-    setTagData(e.checkedNodesPositions);
+    console.log("onCheck", checkedKeys, e);
+
+    setTagData(e.checkedNodes);
+
     // setCheckedKeys(checkedKeysValue);
   };
+  console.log(tagData);
 
   // const onCheck = (checked: React.Key[], info: any) => {
   //   console.log("onCheck", checked, info);
@@ -60,7 +68,7 @@ const Lianxi: React.FC = () => {
           key: "0-0-1",
           children: [
             {
-              title: <span style={{ color: "#1890ff" }}>sss</span>,
+              title: "lichang",
               key: "0-0-1-0",
             },
           ],
@@ -88,7 +96,7 @@ const Lianxi: React.FC = () => {
             },
           ]}
         >
-          {(fields, { add, remove }, { errors }) => (
+          {(fields, {add, remove}, {errors}) => (
             <>
               {fields.map((field, index) => (
                 <Form.Item
@@ -114,7 +122,7 @@ const Lianxi: React.FC = () => {
                   >
                     <Input
                       placeholder="passenger name"
-                      style={{ width: "60%" }}
+                      style={{width: "60%"}}
                       onClick={() => {
                         console.log(field);
                       }}
@@ -132,7 +140,7 @@ const Lianxi: React.FC = () => {
                 <Button
                   type="dashed"
                   onClick={() => add()}
-                  style={{ width: "60%" }}
+                  style={{width: "60%"}}
                   icon={<PlusOutlined />}
                 >
                   Add field
@@ -142,7 +150,7 @@ const Lianxi: React.FC = () => {
                   onClick={() => {
                     add("The head item", 0);
                   }}
-                  style={{ width: "60%", marginTop: "20px" }}
+                  style={{width: "60%", marginTop: "20px"}}
                   icon={<PlusOutlined />}
                 >
                   Add field at head
@@ -161,18 +169,28 @@ const Lianxi: React.FC = () => {
 
       <hr />
       <Tree
-        checkable
+        // checkable
         defaultExpandedKeys={["0-0-0", "0-0-1"]}
-        defaultSelectedKeys={["0-0-0", "0-0-1"]}
+        // defaultSelectedKeys={["0-0-0", "0-0-1"]}
         defaultCheckedKeys={["0-0-0", "0-0-1"]}
-        onSelect={() => {
-          console.log("kkkk");
-        }}
+        showLine={{showLeafIcon: false}}
+        multiple
+        onSelect={onSelect}
         onCheck={onCheck}
         treeData={treeData}
       />
-      {tagData.map((item) => {
-        <Tag>{item}</Tag>;
+      {tagData?.map(item => {
+        return (
+          <Tag
+            closable
+            key={item.key}
+            onClose={e => {
+              console.log(e);
+            }}
+          >
+            {item.title}
+          </Tag>
+        );
       })}
     </div>
   );
