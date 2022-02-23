@@ -1,20 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./index.module.less";
 import classnames from "classnames";
+import Throttle from "./useThrottle";
 const HeadLayout: React.FC = () => {
   const [state, setState] = useState<boolean>(false);
+  const bottomHead = useRef(null);
+  console.log(bottomHead);
 
-  window.onscroll = function () {
-    let scrollTop =
-      document.documentElement.scrollTop || document.body.scrollTop;
-    scrollTop > 35 ? setState(true) : setState(false);
-  };
+  useEffect(() => {
+    window.onscroll = Throttle(() => {
+      let scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop > 20 && !state) {
+        setState(true);
+      }
+      if (scrollTop < 20) {
+        setState(false);
+      }
+    }, 100);
+  }, []);
 
   return (
     <div className={styles.app}>
       <header className={styles.wrapHead}>
         <div className={styles.topHead}></div>
-        <div className={state ? styles.bottomHeadOther : styles.bottomHead}>
+        <div
+          ref={bottomHead}
+          className={state ? styles.bottomHeadOther : styles.bottomHead}
+        >
           <div className={styles.navLeft}></div>
           <div className={styles.navCenter}>
             <ul>

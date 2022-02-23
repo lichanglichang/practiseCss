@@ -11,7 +11,7 @@ import VwLayout from "../pages/vwLayout/index";
 import Table from "../pages/table";
 import FontStyle from "../pages/fontStyle";
 import PracticeLayout from "../pages/practiceLayout/index";
-import HeadLayout from "../pages/head";
+import HeadLayout from "../pages/headNav";
 const AllRoute = () => {
   return (
     <Router>
