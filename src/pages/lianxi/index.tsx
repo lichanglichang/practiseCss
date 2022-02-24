@@ -1,57 +1,36 @@
-import {Button, Form, Input, Tag, Tree} from "antd";
-import React, {useState} from "react";
-import {MinusCircleOutlined, PlusOutlined} from "@ant-design/icons";
+import { Button, Form, Input, Modal, Space, Tag, Tree } from "antd";
+import React, { useMemo, useState } from "react";
+import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 const Lianxi: React.FC = () => {
   const formItemLayout = {
     labelCol: {
-      xs: {span: 24},
-      sm: {span: 4},
+      xs: { span: 24 },
+      sm: { span: 4 },
     },
     wrapperCol: {
-      xs: {span: 24},
-      sm: {span: 20},
+      xs: { span: 24 },
+      sm: { span: 20 },
     },
   };
   const formItemLayoutWithOutLabel = {
     wrapperCol: {
-      xs: {span: 24, offset: 0},
-      sm: {span: 20, offset: 4},
+      xs: { span: 24, offset: 0 },
+      sm: { span: 20, offset: 4 },
     },
   };
   const onFinish = (values: any) => {
     console.log("Received values of form:", values);
   };
-
-  const onSelect = (selectedKeys: React.Key[], info: any) => {
-    console.log("selected", selectedKeys, info.selectedNodes);
-    setTagData(info.selectedNodes);
-  };
-  interface tagDataType {
-    title: string;
-    key: string;
-    children: tagDataType;
-  }
-  const [tagData, setTagData] = useState<tagDataType[]>();
-  const onCheck = (checkedKeys: any, e: any) => {
-    console.log("onCheck", checkedKeys, e);
-
-    setTagData(e.checkedNodes);
-
-    // setCheckedKeys(checkedKeysValue);
-  };
-  console.log(tagData);
-
-  // const onCheck = (checked: React.Key[], info: any) => {
-  //   console.log("onCheck", checked, info);
-  // };
   const treeData = [
     {
       title: "parent 1",
       key: "0-0",
+      selectable: false,
       children: [
         {
           title: "parent 1-0",
           key: "0-0-0",
+          selectable: false,
           children: [
             {
               title: "leaf",
@@ -66,6 +45,7 @@ const Lianxi: React.FC = () => {
         {
           title: "parent 1-1",
           key: "0-0-1",
+          selectable: false,
           children: [
             {
               title: "lichang",
@@ -76,6 +56,43 @@ const Lianxi: React.FC = () => {
       ],
     },
   ];
+  interface tagDataType {
+    title: string;
+    key: string;
+    children?: tagDataType;
+  }
+  const [tagData, setTagData] = useState<tagDataType[]>([]);
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleClose = (value: tagDataType) => {
+    let dataArr = tagData.filter((item) => {
+      return item.key !== value.key;
+    });
+    setTagData([...dataArr]);
+  };
+
+  const onSelect = (selectedKeys: React.Key[], info: any) => {
+    setTagData(info.selectedNodes);
+  };
+
+  const selectedKeys = useMemo(() => {
+    return tagData.map((item) => {
+      return item.key;
+    });
+  }, [tagData]);
 
   return (
     <div>
@@ -96,7 +113,7 @@ const Lianxi: React.FC = () => {
             },
           ]}
         >
-          {(fields, {add, remove}, {errors}) => (
+          {(fields, { add, remove }, { errors }) => (
             <>
               {fields.map((field, index) => (
                 <Form.Item
@@ -122,7 +139,7 @@ const Lianxi: React.FC = () => {
                   >
                     <Input
                       placeholder="passenger name"
-                      style={{width: "60%"}}
+                      style={{ width: "60%" }}
                       onClick={() => {
                         console.log(field);
                       }}
@@ -140,7 +157,7 @@ const Lianxi: React.FC = () => {
                 <Button
                   type="dashed"
                   onClick={() => add()}
-                  style={{width: "60%"}}
+                  style={{ width: "60%" }}
                   icon={<PlusOutlined />}
                 >
                   Add field
@@ -150,7 +167,7 @@ const Lianxi: React.FC = () => {
                   onClick={() => {
                     add("The head item", 0);
                   }}
-                  style={{width: "60%", marginTop: "20px"}}
+                  style={{ width: "60%", marginTop: "20px" }}
                   icon={<PlusOutlined />}
                 >
                   Add field at head
@@ -168,30 +185,56 @@ const Lianxi: React.FC = () => {
       </Form>
 
       <hr />
-      <Tree
-        // checkable
-        defaultExpandedKeys={["0-0-0", "0-0-1"]}
-        // defaultSelectedKeys={["0-0-0", "0-0-1"]}
-        defaultCheckedKeys={["0-0-0", "0-0-1"]}
-        showLine={{showLeafIcon: false}}
-        multiple
-        onSelect={onSelect}
-        onCheck={onCheck}
-        treeData={treeData}
-      />
-      {tagData?.map(item => {
-        return (
-          <Tag
-            closable
-            key={item.key}
-            onClose={e => {
-              console.log(e);
-            }}
-          >
-            {item.title}
-          </Tag>
-        );
-      })}
+      <Button type="primary" onClick={showModal}>
+        Open Modal
+      </Button>
+
+      <Modal
+        title="关联组织"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        okText="确定"
+        cancelText="取消"
+      >
+        <div style={{ display: "flex" }}>
+          <div>
+            <Input.Search
+              placeholder="请输入组织名称"
+              allowClear
+              style={{ width: 200 }}
+            />
+            <Tree
+              defaultExpandAll
+              selectedKeys={selectedKeys}
+              showLine={{ showLeafIcon: false }}
+              multiple
+              onSelect={onSelect}
+              treeData={treeData}
+            />
+          </div>
+
+          <div>
+            <p>已选（{tagData?.length}）</p>
+            <Space size={[8, 16]} wrap>
+              {tagData?.map((item) => {
+                return (
+                  <Tag
+                    closable
+                    color="processing"
+                    key={item.key}
+                    onClose={() => {
+                      handleClose(item);
+                    }}
+                  >
+                    {item.title}
+                  </Tag>
+                );
+              })}
+            </Space>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 };
